@@ -34,9 +34,3 @@ print(x, y)
 
 x = 1
 print(id(x))
-
-x = x + 1
-print(id(x))  # New location for new value, at some point python releases the allocated memory for the older value
-
-#int - unmutable
-#array - mutable
