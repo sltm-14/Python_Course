@@ -26,3 +26,8 @@ print("\n")
 # X tales a value from 1 to 11 with steps of 2
 for x in range(1, 11, 2):
     print(x)
+
+new_list = [1, 11, 2]
+
+for x in  new_list:
+    print(x)

@@ -9,6 +9,9 @@ print(my_list)
 my_list.append(3)
 print(my_list)
 
+my_list.append("Hi")
+print(my_list)
+
 #Output: [1, 2, 'Anna', 'N', 9, 7.1, 3]
 
 my_list.append([4, 1])

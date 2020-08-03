@@ -1,6 +1,6 @@
 
 """
-    For/Else loops helps us not tu use flags in order to do something, 
+    For/Else loops helps us not tu use flags in order to do something,
     in this example if the foor loop finishes without "breaking" (entering to break)
     what's inside of else block will be executed
 """
