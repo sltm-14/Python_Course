@@ -1,38 +1,24 @@
+from sys import stdin
 
-queries = [[1, 2, 100], [2, 5, 100], [3, 4, 100]]
-n = 5
+if __name__ == '__main__':
+    (n,m) = [int(i) for i in stdin.readline().split()]
 
-listIntegration = [0] * n
-"""
-for y in range (len(queries)):
-    for x in range (queries[y][0]-1,queries[y][1]):
-        listIntegration[x] = listIntegration[x] + queries[y][2]
-"""
+    vals  = [0] * (n+1)
 
-for y in range (len(queries)):
-    #listIntegration[queries[y][0]-1:queries[y][1]] = listIntegration[queries[y][0]-1:queries[y][1]] + [queries[y][2]]
-    #listIntegration[queries[y][0]-1:queries[y][1]] = map(sum, zip(listIntegration[queries[y][0]-1:queries[y][1]], (((queries[y][1] - queries[y][0]) + 1) * [queries[y][2]]) ))
+    m_sum = 0
+    aux   = 0
 
-
-
-    listIntegration[queries[y][0]-1:queries[y][1]]  = tuple(map(lambda x: x[0] + x[1], zip( listIntegration[queries[y][0]-1:queries[y][1]] , (((queries[y][1] - queries[y][0]) + 1) * [queries[y][2]]) )))
-
-print(listIntegration)
-print ("aaaaaaaaaaaaah")
-print(max(listIntegration))
-
-"""print ("----------------------------------------------")
+    for _ in range(m):
+        (a, b, k) = [int(n) for n in stdin.readline().split()]
+        vals[a-1] += k
+        if b <= n:
+            vals[b] -= k
 
 
-first = [1, 2, 3, 4, 5]
-second = [6, 7, 8, 9, 10]
 
-third  = tuple(zip(first,second))
-print(third)
+    for i in (vals):
+        aux += i
+        if m_sum < aux:
+            m_sum = aux
 
-third  = tuple(map(lambda x: x[0] + x[1], zip(first, second)))
-
-print(first)
-print(second)
-print(tuple(third))
-"""
+    print(m_sum)
