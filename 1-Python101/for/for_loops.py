@@ -31,3 +31,8 @@ new_list = [1, 11, 2]
 
 for x in  new_list:
     print(x)
+
+names = ["Mateo","Andrea","Ximena","Nicolas"]
+
+for name in names:
+    print(name)
