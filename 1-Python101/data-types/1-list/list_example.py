@@ -50,7 +50,7 @@ print(my_list)
 
 """ - DELETE ELEMENTS FROM LIST --------------------------------------------------- """
 numbers = [1,2,3,4,5,1,2,3,4,5]
-
+print("Aquí----------------------------------")
 my_list.remove('N')
 print(my_list)
 
