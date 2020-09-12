@@ -9,12 +9,12 @@ def binary_search(input_array, value):
         if (input_array[middle] == value):
             index = middle
             break
-        elif (input_array[middle] < value):
+        elif (value > input_array[middle]):
             low = middle + 1
         else:
             high = middle - 1
 
-    return index
+    return
 
 test_list = [1,3,9,11,15,19,29]
 
