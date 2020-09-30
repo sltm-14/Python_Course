@@ -140,8 +140,14 @@ class Graph(object):
         MODIFIES: the value of the visited property of nodes in self.nodes
         RETURN: a list of the traversed node values (integers).
         """
-        ret_list = [start_node.value]
-        # Your code here
+        ret_list = []
+
+        if start_node.visited == False:
+            start_node.visited = True
+            ret_list.append(start_node.value)
+            for edge in start_node.edges:
+                ret_list.extend(self.dfs_helper(edge.node_to))
+
         return ret_list
 
     def dfs(self, start_node_num):
@@ -159,7 +165,7 @@ class Graph(object):
         return [self.node_names[num] for num in self.dfs(start_node_num)]
 
     def bfs(self, start_node_num):
-        """TODO: Create an iterative implementation of Breadth First Search
+        """ : Create an iterative implementation of Breadth First Search
         iterating through a node's edges. The output should be a list of
         numbers corresponding to the traversed nodes.
         ARGUMENTS: start_node_num is the node number (integer)
@@ -211,24 +217,24 @@ graph.insert_edge(9471, 5, 2)   # Sao Paolo <-> London
 import pprint
 pp = pprint.PrettyPrinter(indent=2)
 
-print "Edge List"
-pp.pprint(graph.get_edge_list_names())
+# print ("Edge List")
+# pp.pprint(graph.get_edge_list_names())
+#
+# print ("\nAdjacency List")
+# pp.pprint(graph.get_adjacency_list_names())
+#
+# print ("\nAdjacency Matrix")
+# pp.pprint(graph.get_adjacency_matrix())
 
-print "\nAdjacency List"
-pp.pprint(graph.get_adjacency_list_names())
-
-print "\nAdjacency Matrix"
-pp.pprint(graph.get_adjacency_matrix())
-
-print "\nDepth First Search"
+print ("\nDepth First Search")
 pp.pprint(graph.dfs_names(2))
 
-# Should print:
-# Depth First Search
-# ['London', 'Shanghai', 'Mountain View', 'San Francisco', 'Berlin', 'Sao Paolo']
-
-print "\nBreadth First Search"
-pp.pprint(graph.bfs_names(2))
+# # Should print:
+# # Depth First Search
+# # ['London', 'Shanghai', 'Mountain View', 'San Francisco', 'Berlin', 'Sao Paolo']
+#
+# print ("\nBreadth First Search")
+# pp.pprint(graph.bfs_names(2))
 # test error reporting
 # pp.pprint(['Sao Paolo', 'Mountain View', 'San Francisco', 'London', 'Shanghai', 'Berlin'])
 
