@@ -57,6 +57,9 @@ print(my_list)
 numbers.remove(3)
 print(numbers)
 
+numbers.remove(numbers[0])
+print(numbers)
+
 my_list.pop()
 print(my_list)
 
