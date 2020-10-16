@@ -36,3 +36,11 @@ names = ["Mateo","Andrea","Ximena","Nicolas"]
 
 for name in names:
     print(name)
+
+
+def say_hello():
+    print("Hello")
+
+for i in range(5):
+    print(i)
+    say_hello()
