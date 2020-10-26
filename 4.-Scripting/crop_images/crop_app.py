@@ -15,8 +15,8 @@ def crop_image(origin_route,destination_route,x1_,y1_,x2_,y2_):
 
 #     up    down  left  right
 x1_list = [   0,  230,    0, 1370]
-x2_list = [   0, 1080,    0,    0]
-y1_list = [1920, 1594, 1920, 3286]
+y1_list = [   0, 1080,    0,    0]
+x2_list = [1920, 1594, 1920, 3286]
 y2_list = [1076, 1840, 1080, 1080]
 
 origin_path = input("Insert Origin path: ")
@@ -30,9 +30,7 @@ destination_path = destination_path + '/'
 
 position = int(input("Position of the screen to keep:\n0.-Up\n1.-Down\n2.-Left\n3.-Right\n\n"))
 
-if(1 > position > 4):
-    print("not a valid option")
-else:
+if(0 <= position < 4):
     x_1 = x1_list[position]
     y_1 = y1_list[position]
     x_2 = x2_list[position]
@@ -40,3 +38,5 @@ else:
     print(origin_path)
     print(destination_path)
     crop_image( origin_path, destination_path, x_1, y_1, x_2, y_2 )
+else:
+    print("not a valid option")
