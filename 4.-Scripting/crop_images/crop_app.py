@@ -12,7 +12,6 @@ def crop_image(origin_route,destination_route,x1_,y1_,x2_,y2_):
         cropped = cropped.save(dir)
         print(picture)
 
-
 #     up    down  left  right
 x1_list = [   0,  230,    0, 1370]
 y1_list = [   0, 1080,    0,    0]
@@ -39,4 +38,4 @@ if(0 <= position < 4):
     print(destination_path)
     crop_image( origin_path, destination_path, x_1, y_1, x_2, y_2 )
 else:
-    print("not a valid option")
+    print("Not a valid option")
