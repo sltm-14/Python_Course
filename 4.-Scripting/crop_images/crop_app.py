@@ -1,41 +1,26 @@
-from PIL import Image
 import os
+import tkinter # only import tkinr
 
-def crop_image(origin_route,destination_route,x1_,y1_,x2_,y2_):
-    contenido = os.listdir(origin_route)
+def inputText():
+    path = textBox.get()
+    etiqueta["text"] = path
 
-    for picture in (contenido):
-        dir = origin_route + "/" + picture
-        im = Image.open(dir)
-        cropped = im.crop((x1_,y1_,x2_,y2_))
-        dir = destination_route + picture
-        cropped = cropped.save(dir)
-        print(picture)
+window = tkinter.Tk()
+window.geometry("500x300")
 
-#     up    down  left  right
-x1_list = [   0,  230,    0, 1370]
-y1_list = [   0, 1080,    0,    0]
-x2_list = [1920, 1594, 1920, 3286]
-y2_list = [1076, 1840, 1080, 1080]
+textBox = tkinter.Entry(window,font = "Helvetica 20") #window en la que se muestra, fuente tamaño de letra
+textBox.pack()
 
-origin_path = input("Insert Origin path: ")
-origin_path = origin_path.replace("C:","")
-origin_path = origin_path.replace('\\','/')
+boton = tkinter.Button(window,text = "click",command = inputText)
+boton.pack()
 
-destination_path = input("Insert destination path: ")
-destination_path = destination_path.replace("C:","")
-destination_path = destination_path.replace('\\','/')
-destination_path = destination_path + '/'
+window.mainloop()
 
-position = int(input("Position of the screen to keep:\n0.-Up\n1.-Down\n2.-Left\n3.-Right\n\n"))
 
-if(0 <= position < 4):
-    x_1 = x1_list[position]
-    y_1 = y1_list[position]
-    x_2 = x2_list[position]
-    y_2 = y2_list[position]
-    print(origin_path)
-    print(destination_path)
-    crop_image( origin_path, destination_path, x_1, y_1, x_2, y_2 )
+path = "/Users/sltm1/Documents/REPASO/Python/Python_Basics/4.-Scripting/recortes"
+try:
+    os.mkdir(path)
+except OSEError:
+    print("Creation of directory %s failsed" % path)
 else:
-    print("Not a valid option")
+    print("Directory succesfully created %s" % path)
