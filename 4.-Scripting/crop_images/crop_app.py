@@ -1,26 +1,38 @@
 import os
-import tkinter # only import tkinr
+from PIL import Image
+import tkinter as tk
 
-def inputText():
-    path = textBox.get()
-    etiqueta["text"] = path
 
-window = tkinter.Tk()
+def getInputText():
+    text = textBox.get()
+
+
+window = tk.Tk()
 window.geometry("500x300")
 
-textBox = tkinter.Entry(window,font = "Helvetica 20") #window en la que se muestra, fuente tamaño de letra
-textBox.pack()
+rb = tk.IntVar()
+rb.set(1)  # initializing the choice, i.e. Python
+pos = 0
 
-boton = tkinter.Button(window,text = "click",command = inputText)
-boton.pack()
+cropingOptions = [
+    ("Up",0),
+    ("Down",1),
+    ("Right",2),
+    ("Left",3)
+]
+
+#            up    down  left  right
+x1 = [   0,  230,    0, 1370]
+y1 = [   0, 1080,    0,    0]
+x2 = [1920, 1594, 1920, 3286]
+y2 = [1076, 1840, 1080, 1080]
+
+tb_path = tk.Entry(window,font = "Helvetica 20")
+tb_path.grid(row = 4, column = 2)
+
+bt_getPath = tk.Button(window,text = "click", command = getInputText)
+
+
+
 
 window.mainloop()
-
-
-path = "/Users/sltm1/Documents/REPASO/Python/Python_Basics/4.-Scripting/recortes"
-try:
-    os.mkdir(path)
-except OSEError:
-    print("Creation of directory %s failsed" % path)
-else:
-    print("Directory succesfully created %s" % path)

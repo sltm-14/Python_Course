@@ -11,7 +11,7 @@ def crop_image(origin_route,destination_route,x1_,y1_,x2_,y2_):
         dir = destination_route + picture
         cropped = cropped.save(dir)
         print(picture)
-C:\Users\sltm1\Pictures\screenshots_job\UP_Destination
+
 #            up    down  left  right
 x1_list = [   0,  230,    0, 1370]
 y1_list = [   0, 1080,    0,    0]
