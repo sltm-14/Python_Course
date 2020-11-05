@@ -14,6 +14,11 @@ def process_data(data):
     print("Data processing finished")
     return modified_data
 
+def read_data_from_web():
+    print("Reading data from web")
+    data = "Data from the web"
+    return data 
+
 def main():
     data = "My data read from the web"
     print(data)
